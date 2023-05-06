@@ -11,7 +11,7 @@ import path from 'node:path'
 
 import generate from './codegen'
 import { load_manifest, type ProjectManifest } from './codegen/manifest'
-import { format_router_manifest } from './codegen/router'
+import { format_router_manifest } from './codegen/router/router'
 import { extractDocuments } from './extract'
 import { transformFile } from './transform'
 import vite_plugin from './vite'

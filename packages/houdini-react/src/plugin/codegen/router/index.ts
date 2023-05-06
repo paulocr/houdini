@@ -1,8 +1,8 @@
 import type { GenerateHookInput } from 'houdini'
 
-import type { ProjectManifest } from './manifest'
-import { generate_router } from './router'
-import { generate_types } from './types'
+import type { ProjectManifest } from '../manifest'
+import { generate_entries } from './entries'
+import { generate_renders } from './render'
 
 /**
  * The router is fundamentally a component that knows how to render
@@ -13,15 +13,16 @@ import { generate_types } from './types'
  * with suspense boundaries sprinkled when there is a loading directive
  * present on a query.
  */
-export default async function routerCodegen(
-	args: GenerateHookInput & { manifest: ProjectManifest }
-) {
+export async function generate_router({
+	config,
+	manifest,
+}: GenerateHookInput & { manifest: ProjectManifest }) {
 	// use the manifest to generate all of the necessary project files
-	await Promise.all([
-		generate_router(args),
-		generate_types({
-			config: args.config,
-			manifest: args.manifest,
+	return await Promise.all([
+		generate_entries({
+			config,
+			manifest,
 		}),
+		generate_renders(config),
 	])
 }

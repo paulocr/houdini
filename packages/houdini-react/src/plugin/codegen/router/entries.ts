@@ -6,8 +6,8 @@ import {
 	layout_unit_path,
 	is_layout,
 	fallback_unit_path,
-} from '../conventions'
-import type { ProjectManifest, PageManifest, QueryManifest } from './manifest'
+} from '../../conventions'
+import type { ProjectManifest, PageManifest, QueryManifest } from '../manifest'
 
 export async function generate_entries({
 	config,

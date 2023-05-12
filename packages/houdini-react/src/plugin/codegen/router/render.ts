@@ -1,6 +1,6 @@
 import { type Config, fs, path } from 'houdini'
 
-import { render_client_path, render_server_path, render_app_path } from '../conventions'
+import { render_client_path, render_server_path, render_app_path } from '../../conventions'
 
 export async function generate_renders(config: Config) {
 	// make sure the necessary directories exist

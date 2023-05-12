@@ -1,8 +1,8 @@
 import { fs, parseJS } from 'houdini'
 import { test, expect } from 'vitest'
 
-import { test_config } from '../config'
-import { render_server_path, render_client_path } from '../conventions'
+import { test_config } from '../../config'
+import { render_server_path, render_client_path } from '../../conventions'
 import { generate_renders } from './render'
 
 test('generates render functions', async function () {

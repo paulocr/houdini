@@ -18,6 +18,7 @@ $houdini
 .turbo
 build/**
 dist/**
+dist/**
 .next/**
 coverage
 

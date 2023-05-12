@@ -1,15 +1,15 @@
 import { fs, parseJS } from 'houdini'
 import { test, expect } from 'vitest'
 
-import { test_config } from '../config'
+import { test_config } from '../../config'
 import {
 	page_entry_path,
 	page_unit_path,
 	layout_unit_path,
 	fallback_unit_path,
-} from '../conventions'
+} from '../../conventions'
+import { load_manifest } from '../manifest'
 import { generate_entries } from './entries'
-import { load_manifest } from './manifest'
 
 test('composes layouts and pages', async function () {
 	const config = await test_config()

@@ -18,8 +18,8 @@
 		"paths": {
 			"$houdini": ["./$houdini"],
 			"$houdini/*": ["./$houdini/*"]
-		}
+		},
+		"plugins": [{ "name": "houdini-react-typescript-plugin" }]
 	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["src"]
 }

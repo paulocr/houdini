@@ -1,8 +1,8 @@
 import { fs } from 'houdini'
 import { test, expect } from 'vitest'
 
-import { test_config } from '../config'
-import { load_manifest } from './manifest'
+import { test_config } from '../../config'
+import { load_manifest } from '../manifest'
 import { format_router_manifest } from './router'
 
 const importStatement = (where: string, as: string) => `import ${as} from '${where}'`
@@ -49,7 +49,7 @@ test('happy path', async function () {
 						pattern: /^\\\\/$/,
 						params: [],
 
-					
+
 						documents: {
 							RootQuery: {
 										artifact: () => import(\\"../../../artifacts/RootQuery\\"),
@@ -65,7 +65,7 @@ test('happy path', async function () {
 						pattern: /^\\\\/([^/]+?)\\\\/?$/,
 						params: [{\\"name\\":\\"id\\",\\"optional\\":false,\\"rest\\":false,\\"chained\\":false}],
 
-					
+
 						documents: {
 							SubQuery: {
 										artifact: () => import(\\"../../../artifacts/SubQuery\\"),
@@ -85,7 +85,7 @@ test('happy path', async function () {
 						pattern: /^\\\\/another\\\\/?$/,
 						params: [],
 
-					
+
 						documents: {
 							MyQuery: {
 										artifact: () => import(\\"../../../artifacts/MyQuery\\"),
@@ -109,7 +109,7 @@ test('happy path', async function () {
 						pattern: /^\\\\/([^/]+?)\\\\/nested\\\\/?$/,
 						params: [{\\"name\\":\\"id\\",\\"optional\\":false,\\"rest\\":false,\\"chained\\":false}],
 
-					
+
 						documents: {
 							FinalQuery: {
 										artifact: () => import(\\"../../../artifacts/FinalQuery\\"),
@@ -186,7 +186,7 @@ test('loading state at root', async function () {
 						pattern: /^\\\\/$/,
 						params: [],
 
-					
+
 						documents: {
 							RootQuery: {
 										artifact: () => import(\\"../../../artifacts/RootQuery\\"),
@@ -202,7 +202,7 @@ test('loading state at root', async function () {
 						pattern: /^\\\\/([^/]+?)\\\\/?$/,
 						params: [{\\"name\\":\\"id\\",\\"optional\\":false,\\"rest\\":false,\\"chained\\":false}],
 
-					
+
 						documents: {
 							SubQuery: {
 										artifact: () => import(\\"../../../artifacts/SubQuery\\"),
@@ -222,7 +222,7 @@ test('loading state at root', async function () {
 						pattern: /^\\\\/another\\\\/?$/,
 						params: [],
 
-					
+
 						documents: {
 							MyQuery: {
 										artifact: () => import(\\"../../../artifacts/MyQuery\\"),
@@ -246,7 +246,7 @@ test('loading state at root', async function () {
 						pattern: /^\\\\/([^/]+?)\\\\/nested\\\\/?$/,
 						params: [{\\"name\\":\\"id\\",\\"optional\\":false,\\"rest\\":false,\\"chained\\":false}],
 
-					
+
 						documents: {
 							FinalQuery: {
 										artifact: () => import(\\"../../../artifacts/FinalQuery\\"),

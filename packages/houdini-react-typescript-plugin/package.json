@@ -1,0 +1,36 @@
+{
+    "name": "houdini-react-typescript-plugin",
+    "version": "1.2.3",
+    "description": "The TypeScript plugin for the React plugin for houdini",
+    "keywords": [
+        "typescript",
+        "react",
+        "graphql",
+        "graphql-client"
+    ],
+    "homepage": "https://github.com/HoudiniGraphql/houdini",
+    "funding": "https://github.com/sponsors/HoudiniGraphql",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/HoudiniGraphql/houdini.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "tsc -p ./ --outDir ./dist",
+        "watch": "tsc -w -p ./"
+    },
+    "devDependencies": {
+        "swc": "^1.0.11"
+    },
+    "dependencies": {
+        "@tsconfig/node12": "^1.0.11",
+        "@tsconfig/node16": "^1.0.3",
+        "@tsconfig/node20": "^1.0.0",
+        "typescript": "^4.9.4"
+    },
+    "files": [
+        "build"
+    ],
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+}

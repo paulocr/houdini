@@ -20,12 +20,15 @@
         "watch": "tsc -w -p ./"
     },
     "devDependencies": {
+        "@babel/types": "^7.21.4",
         "swc": "^1.0.11"
     },
     "dependencies": {
+        "@babel/parser": "^7.21.8",
         "@tsconfig/node12": "^1.0.11",
         "@tsconfig/node16": "^1.0.3",
         "@tsconfig/node20": "^1.0.0",
+        "houdini": "workspace:^",
         "typescript": "^4.9.4"
     },
     "files": [

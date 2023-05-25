@@ -254,6 +254,13 @@ export const resolvers = {
 		addNonNullUser(...args) {
 			return this.addUser(...args)
 		},
+		deleteUser: (_, { snapshot, id }) => {
+			userSnapshots[snapshot] = userSnapshots[snapshot].filter((user) => user.id !== id)
+
+			return {
+				userID: id,
+			}
+		},
 		addUser: async (_, args) => {
 			if (args.delay) {
 				await sleep(args.delay)

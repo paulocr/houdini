@@ -1,13 +1,28 @@
 <script lang="ts">
+  import { graphql } from '$houdini';
   import type { PageData } from './$houdini';
   import UserItem from './UserItem.svelte';
 
   export let data: PageData;
   $: ({ ListUsers } = data);
+
+  const deleteMutation = graphql(`
+    mutation DeleteUserFromFragmentList($id: ID!) {
+      deleteUser(id: $id, snapshot: "users-list-fragment") {
+        userID @User_delete
+      }
+    }
+  `);
 </script>
 
-<div id="result">
-  {#if $ListUsers.data}
+{#if $ListUsers.data}
+  <button
+    on:click={() =>
+      deleteMutation.mutate({ id: $ListUsers.data?.usersConnection.edges[0].node?.id ?? '' })}
+  >
+    Delete User
+  </button>
+  <div id="result">
     <ul>
       {#each $ListUsers.data.usersConnection.edges as userEdge}
         {@const user = userEdge.node}
@@ -16,5 +31,5 @@
         {/if}
       {/each}
     </ul>
-  {/if}
-</div>
+  </div>
+{/if}

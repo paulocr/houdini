@@ -3,6 +3,7 @@ query ListUsers {
     edges {
       node {
         name
+        id
         ...UserListItem
       }
     }

@@ -13,6 +13,16 @@
       }
     }
   `);
+
+  const deleteNestedMutation = graphql(`
+    mutation DeleteNestedUserFromFragmentList($id: ID!) {
+      deleteUser(id: $id, snapshot: "users-list-fragment") {
+        user {
+          id @User_delete
+        }
+      }
+    }
+  `);
 </script>
 
 {#if $ListUsers.data}
@@ -21,6 +31,12 @@
       deleteMutation.mutate({ id: $ListUsers.data?.usersConnection.edges[0].node?.id ?? '' })}
   >
     Delete User
+  </button>
+  <button
+    on:click={() =>
+      deleteNestedMutation.mutate({ id: $ListUsers.data?.usersConnection.edges[0].node?.id ?? '' })}
+  >
+    Delete Nested User
   </button>
   <div id="result">
     <ul>

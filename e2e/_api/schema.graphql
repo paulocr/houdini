@@ -21,7 +21,6 @@ enum ForceReturn {
 }
 
 type Mutation {
-	deleteUser(id: ID!, snapshot: String!): DeleteUserOutput!
 	addUser(
 		birthDate: DateTime!
 		name: String!
@@ -47,9 +46,15 @@ type Mutation {
 	addLibrary(city: ID!, name: String!): Library!
 	addBook(library: ID!, title: String!): Book!
 	deleteCity(city: ID!): City!
+	deleteUser(id: ID!, snapshot: String!): DeleteUserOutput!
 	deleteLibrary(library: ID!): Library!
 	deleteBook(book: ID!, delay: Int, force: ForceReturn): Book
 	updateRentedBook(userId: String!, bookId: Int!, rate: Int!): RentedBook
+}
+
+type DeleteUserOutput {
+	userID: ID
+	user: User
 }
 
 interface Node {
@@ -65,10 +70,6 @@ type PageInfo {
 
 input UserNameFilter {
 	name: String!
-}
-
-type DeleteUserOutput {
-	userID: ID
 }
 
 type Query {

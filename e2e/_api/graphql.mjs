@@ -254,13 +254,6 @@ export const resolvers = {
 		addNonNullUser(...args) {
 			return this.addUser(...args)
 		},
-		deleteUser: (_, { snapshot, id }) => {
-			userSnapshots[snapshot] = userSnapshots[snapshot].filter((user) => user.id !== id)
-
-			return {
-				userID: id,
-			}
-		},
 		addUser: async (_, args) => {
 			if (args.delay) {
 				await sleep(args.delay)
@@ -368,6 +361,17 @@ export const resolvers = {
 			}
 			library.books.push(book)
 			return book
+		},
+		deleteUser: (_, { id, snapshot }) => {
+			const user = getUserSnapshot(snapshot).find((c) => c.id === id)
+
+			// remove the user
+			userSnapshots[snapshot] = userSnapshots[snapshot].filter((u) => u.id !== user.id)
+
+			return {
+				user,
+				userID: user.id,
+			}
 		},
 		deleteCity: (_, args) => {
 			const cityId = Number.parseInt(args.city)

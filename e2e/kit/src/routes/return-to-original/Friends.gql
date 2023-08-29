@@ -1,0 +1,10 @@
+fragment friendsFragment on User {
+  friendsConnection {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}

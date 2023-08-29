@@ -1,0 +1,8 @@
+query UsersListPC {
+  usersList(snapshot: "") {
+    id
+    name
+    birthDate
+    ...friendsFragment
+  }
+}
